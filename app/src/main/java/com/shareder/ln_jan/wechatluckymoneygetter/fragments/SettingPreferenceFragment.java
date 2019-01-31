@@ -1,5 +1,6 @@
 package com.shareder.ln_jan.wechatluckymoneygetter.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -164,6 +165,7 @@ public class SettingPreferenceFragment extends PreferenceFragment implements
     /**
      * 申请屏幕录取权限
      */
+    @SuppressLint("WrongConstant")
     private void requestScreenShot() {
         startActivityForResult(
                 ((MediaProjectionManager) this.getActivity().getSystemService("media_projection")).createScreenCaptureIntent(),

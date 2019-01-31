@@ -195,7 +195,7 @@ public class HongbaoService extends AccessibilityService {
             if (info == null) {
                 Log.e(TAG, "Recv_ui:AccessibilityNodeInfo null");
             }*/
-            if (mSharedPreferences.getBoolean("pref_watch_chat", false)) {
+            if (mSharedPreferences.getBoolean("pref_watch_chat", true)) {
                 if (mPackeyTag != 0x01) {
                     return;
                 }
@@ -500,7 +500,7 @@ public class HongbaoService extends AccessibilityService {
             if (clickInfo != null) {
                 AccessibilityNodeInfo clickLayoutInfo = clickInfo.getParent();
                 if (clickLayoutInfo != null) {
-                    if (mSharedPreferences.getBoolean("pref_watch_chat", false)) {
+                    if (mSharedPreferences.getBoolean("pref_watch_chat", true)) {
                         if (mPackeyTag != 0x00) {
                             return;
                         }
@@ -553,7 +553,7 @@ public class HongbaoService extends AccessibilityService {
             if (openPackeyInfo != null) {
                 AccessibilityNodeInfo parentInfo = openPackeyInfo.getParent();
                 if (parentInfo != null) {
-                    if (mSharedPreferences.getBoolean("pref_watch_chat", false)) {
+                    if (mSharedPreferences.getBoolean("pref_watch_chat", true)) {
                         if (mPackeyTag != 0x00) {
                             return;
                         }
@@ -592,6 +592,7 @@ public class HongbaoService extends AccessibilityService {
         DisplayMetrics metrics = getResources().getDisplayMetrics();
         float dpi = metrics.densityDpi;
         Log.e(TAG, "openPacket！" + dpi);
+        Toast.makeText(this,dpi + "",Toast.LENGTH_LONG).show();
         if (android.os.Build.VERSION.SDK_INT <= 23) {
             //nodeInfo.performAction(AccessibilityNodeInfo.ACTION_CLICK);
             Toast.makeText(LuckyMoneyTinkerApplication.getContext(), getString(R.string.not_support_low_level), Toast.LENGTH_SHORT).show();
@@ -611,8 +612,8 @@ public class HongbaoService extends AccessibilityService {
                         y = 780;
                     } else if (480 == dpi) {//1080p
                         //path.moveTo(533, 1115);
-                        x = 533;
-                        y = 1115;
+                        x = 540;
+                        y = 1220;
                     } else if (440 == dpi) {//1080*2160
                         //path.moveTo(450, 1250);
                         x = 450;
